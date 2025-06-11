@@ -8,16 +8,16 @@
         cube_side_length: 1000.0
         runtime_pos_log_enable: false
         map_file_path: "./test.pcd"
-
+            # lid_topic:  "/world/baylands/model/x500_mid360_1/link/mid360/livox_link/sensor/livox_lidar/scan/points"
         common:
-            lid_topic:  "/livox/lidar"
-            imu_topic:  "/livox/imu"
+            lid_topic:  "/livox/lidar" # "/livox/converted"#  #
+            imu_topic:  "/world/world_demo/model/x500_mid360_1/link/base_link/sensor/imu_sensor/imu" #"/livox/imu" # ""
             time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
             time_offset_lidar_to_imu: 0.0 # Time offset between lidar and IMU calibrated by other algorithms, e.g. LI-Init (can be found in README).
                                         # This param will take effect no matter what time_sync_en is. So if the time offset is not known exactly, please set as 0.0
 
         preprocess:
-            lidar_type: 1                # 1 for Livox serials LiDAR, 2 for Velodyne LiDAR, 3 for ouster LiDAR, 4 for any other pointcloud input
+            lidar_type: 1       #1 :customMsg         # 1 for Livox serials LiDAR, 2 for Velodyne LiDAR, 3 for ouster LiDAR, 4 for any other pointcloud input
             scan_line:  4
             blind: 0.5
             timestamp_unit: 3
